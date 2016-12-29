@@ -53,11 +53,13 @@ p.y_range = Range1d(10, 65)
 p.x_range = Range1d(70, 140)
 p.patches('x', 'y',legend='legends',color = "colors", source=source, alpha=0.5, line_width=2,line_color = "white")
 
+'''
 text_input = TextInput(value="default", title="标题:")
 slider = Slider(start=0, end=10, value=1, step=.1, title="Slider")
 button_group = RadioButtonGroup(labels=["Option 1", "Option 2", "Option 3"], active=0)
 select = Select(title="Option:", value="foo", options=["foo", "bar", "baz", "quux"])
 button_1 = Button(label="Button 1")
+'''
 
 callback = CustomJS(args=dict(source=source), code="""
         var data = source.data
@@ -105,7 +107,7 @@ data_table = DataTable(source=tablesource, columns=columns, width=400, height=40
 '''
 
 
-output_file("chinamap.html")
+output_file("chinamap.html", title = "China Map")
 l = layout([
     [p,widgetbox(dropdowns1, width=100),widgetbox(dropdowns2, width=100),widgetbox(dropdowns3, width=100)]])
 show(l)
